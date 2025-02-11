@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold ETF Wallet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .wallet-card { 
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .wallet-amount { font-size: 2rem; font-weight: bold; color: #ca8a04; }
+        .details-card { background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); }
+        .profile-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            z-index: 1000;
+        }
+        .profile-popup .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #555;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+     <style>
+        .navbar-brand { font-size: 1.5rem; color: #ca8a04 !important; }
+        .hero { text-align: center; padding: 50px 20px; background: #f8f9fa; }
+        .hero h1 { font-size: 2rem; }
+        .card { padding: 20px; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); }
+        .chart-container { width: 100%; height: 300px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
+        <a class="navbar-brand" href="#">GoldTrade</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Market</a></li>
+                <li class="nav-item"><a class="nav-link" href="/portfolio.html">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" id="profileLink">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="hero">
+        <h1>Invest in Gold ETFs with Confidence</h1>
+        <p>Secure, Smart, and Profitable Trading Platform</p>
+        <button class="btn btn-warning">Start Trading Now</button>
+    </div>
+    
+    <div class="container mt-4">
+        <div class="alert alert-warning">Market is up 1.2% today. Gold ETF prices showing strong momentum.</div>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="wallet-card text-center">
+                    <h3>Your Invested Amount in Gold ETF</h3>
+                    <p class="wallet-amount">₹75,000</p>
+                    <p class="text-muted">Your investments are secure and growing.</p>
+                    <button class="btn btn-warning">View Portfolio</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="details-card">
+                    <h5>Total Returns</h5>
+                    <p class="text-success">₹5,200 (7% Growth)</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="details-card">
+                    <h5>Current Gold ETF Price</h5>
+                    <p>₹2,010.45</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="details-card">
+                    <h5>Market Trend</h5>
+                    <p class="text-success">Bullish ↑</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Profile Pop-up -->
+    <div class="overlay" id="overlay"></div>
+    <div class="profile-popup" id="profilePopup">
+        <span class="close-btn" id="closePopup">×</span>
+        <h3>Krishna Murari</h3>
+        <p><strong>CRN No:</strong> 33931e1508c7</p>
+        <p><strong>Phone No:</strong> 9911505390</p>
+        <p class="text-muted">Krishna Murari is an esteemed investor with a keen understanding of financial markets. His strategic investment approaches have led to substantial returns over time.</p>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById("profileLink").addEventListener("click", function(event) {
+            event.preventDefault();
+            document.getElementById("profilePopup").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        });
+
+        document.getElementById("closePopup").addEventListener("click", function() {
+            document.getElementById("profilePopup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        });
+    </script>
+</body>
+</html>
